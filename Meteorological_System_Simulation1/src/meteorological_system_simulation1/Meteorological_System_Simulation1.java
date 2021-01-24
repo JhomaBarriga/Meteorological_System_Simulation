@@ -5,6 +5,8 @@
  */
 package meteorological_system_simulation1;
 
+import java.util.Scanner;
+
 /**
  *
  * @author USER
@@ -23,6 +25,20 @@ public class Meteorological_System_Simulation1 {
                 + "Simon Bolívar Avenue");
         System.out.println("You must check some meteorological "
                 + "conditions to avoid a crash \n");
+        
+        Scanner data = new Scanner (System.in);
+        int option;
+        
+        
+        System.out.println("YOUR UBICATION \n");
+        System.out.println("❶ ➙ Carapungo until International University");
+        System.out.println("❷ ➙ International University until Puengasi");
+        System.out.println("❸ ➙ Puegasi until South Quicenter");
+        System.out.println("❹ ➙ Exit ✘ \n");
+        System.out.printf("Enter your menu option about your ubication ➙ ");
+            option = data.nextInt();
+            System.out.println();
+
 
     }
     
