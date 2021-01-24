@@ -38,6 +38,27 @@ public class Meteorological_System_Simulation1 {
         System.out.printf("Enter your menu option about your ubication ➙ ");
             option = data.nextInt();
             System.out.println();
+            switch(option){
+                case 1:
+                    System.out.println("We know your ubication ☑, continue please...");
+                    break;
+                case 2:
+                    System.out.println("We know your ubication ☑, continue please...");
+                    break;
+                case 3:
+                    System.out.println("We know your ubication ☑, continue please...");
+                    break;
+                case 4:
+                    System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU ( ＾◡＾) "
+                            + "COME BACK SOON...");
+                    System.exit(0);
+                     break;
+                default:
+                    System.out.println("ERROR!!!");
+                    System.exit(0);
+                     break;
+            }
+
 
 
     }
