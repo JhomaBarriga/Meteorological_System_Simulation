@@ -59,6 +59,37 @@ public class Meteorological_System_Simulation1 {
                      break;
             }
 
+             System.out.println();
+        int option1;
+        System.out.println("WEATHER");
+        System.out.println("❶ ➙ Sunny day ☀");
+        System.out.println("❷ ➙ Cloudy day ☁");
+        System.out.println("❸ ➙ Rainy day ☂");
+        System.out.println("❹ ➙ Exit ✘ \n");
+        System.out.printf("Enter your menu option about the weater ➙ ");
+                option1 = data.nextInt();
+                System.out.println();
+            switch(option1){
+                case 1:
+                    System.out.println("Wait a moment please... \n");
+                    break;
+                case 2:
+                    System.out.println("Wait a moment please... \n");
+                    break;
+                case 3:
+                    System.out.println("Wait a moment please... \n");
+                    break;
+                case 4:
+                    System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU ( ＾◡＾)"
+                            + "COME BACK SOON...");
+                    System.exit(0);
+                     break;
+                default:
+                    System.out.println("ERROR!!!");
+                    System.exit(0);
+                     break;
+            }
+
 
 
     }
