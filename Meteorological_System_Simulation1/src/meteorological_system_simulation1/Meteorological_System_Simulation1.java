@@ -117,28 +117,62 @@ public class Meteorological_System_Simulation1 {
                     System.out.println("❹ ➙ DISTANCE BETWEEN TWO POINTS - ELIPSOID MODEL - VINCENTY");
                     System.out.println("❺ ➙ Exit \n");
                     System.out.printf("Enter your menu option ➙ ");
-                    
+
                     Scanner coordinate = new Scanner(System.in);
                     option3 = coordinate.nextInt();
-                    
+
                     System.out.println();
                     switch (option3) {
                         case 1:
-                            //aqui xiomara
+                            Scanner scan = new Scanner(System.in);
+                            float degreesLatitude;
+                            float degreesLongitude;
+                            float minutesLatitude;
+                            float minutesLongitude;
+                            float secondsLatitude;
+                            float secondsLongitude;
+                            char directionLatitude;
+                            char directionLongitude;
+                            float degreesTLatitude;
+                            float transformGrades;
+
+                            System.out.println("Enter latitude data: \n");
+                            degreesLatitude = scan.nextFloat();
+                            minutesLatitude = scan.nextFloat();
+                            secondsLatitude = scan.nextFloat();
+                            directionLatitude = scan.next().charAt(0);
+                            System.out.println("Enter longitude data:");
+                            degreesLongitude = scan.nextFloat();
+                            minutesLongitude = scan.nextFloat();
+                            secondsLongitude = scan.nextFloat();
+                            directionLongitude = scan.next().charAt(0);
+                            System.out.println("CONVERSION RESULTS:CONVERSION RESULTS");
+                            System.out.println("Data entered: " + degreesLatitude + "* " + minutesLatitude + "' " + secondsLatitude + "' " + Character.toUpperCase(directionLatitude)
+                                    + "; " + degreesLongitude + "* " + minutesLongitude + "' " + secondsLongitude + "'' " + Character.toUpperCase(directionLongitude)
+                                    + "\n ");
+                            System.out.println("Ellipsoid model    Sphere model       Diference");
+                            degreesTLatitude = transformGrades(degreesLatitude, minutesLatitude, secondsLatitude, Character.toUpperCase(directionLatitude));
+                            transformGrades = transformGrades(degreesLongitude, minutesLongitude, secondsLongitude, Character.toUpperCase(directionLongitude));
+
+                            degreesTLatitude = degreesARadians(degreesTLatitude);
+                            degreesLongitude = degreesARadians(degreesLongitude);
+
+                            conversion(degreesTLatitude, degreesLongitude);
+
                             break;
                         case 2:
-                             System.out.println("Write the value the X1 of your coordinate in this moment");
-                             double x1=coordinate.nextDouble();
-                             System.out.println("Write the value the Y1 of yout coordinate");
-                             double y1=coordinate.nextDouble();
-                             System.out.println("Write the value the X2 of your coordinate that you will go");
-                             double x2=coordinate.nextDouble();
-                             System.out.println("Write the value the Y2 of yout coordinate");
-                             double y2=coordinate.nextDouble();
-                             System.out.println();
-                             double distanceeuclidean = ShowEuclideanDistance(x2, x1, y2, y1);
-                             System.out.println(" The distance that you will travel is --> " + distanceeuclidean);
-                            
+                            System.out.println("Write the value the X1 of your coordinate in this moment");
+                            double x1 = coordinate.nextDouble();
+                            System.out.println("Write the value the Y1 of yout coordinate");
+                            double y1 = coordinate.nextDouble();
+                            System.out.println("Write the value the X2 of your coordinate that you will go");
+                            double x2 = coordinate.nextDouble();
+                            System.out.println("Write the value the Y2 of yout coordinate");
+                            double y2 = coordinate.nextDouble();
+                            System.out.println();
+                            double distanceeuclidean = ShowEuclideanDistance(x2, x1, y2, y1);
+                            System.out.println(" The distance that you will travel is --> " + distanceeuclidean);
+
                             break;
                         case 3:
                             System.out.printf(" Enter first longitude coordinate: ");
@@ -172,7 +206,6 @@ public class Meteorological_System_Simulation1 {
                             double dist = showVincentydistance(lat2, lat1, lng2, lng1, earthRadius);
                             System.out.println("The distance that you will travel is---" + dist);
 
-
                             break;
                         case 5:
                             System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU ( ＾◡＾)"
@@ -187,8 +220,8 @@ public class Meteorological_System_Simulation1 {
 
                     break;
                 case 3:
-                    
-                     showConvertionTemperature(scanner);
+
+                    showConvertionTemperature(scanner);
                     break;
                 case 4:
                     System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU ( ＾◡＾)"
@@ -205,18 +238,48 @@ public class Meteorological_System_Simulation1 {
         } while (option < 4);
 
     }
-    
+
+    public static void conversion(float degreesLatitude, float degreesLongitude) {
+        float xEllipsoid;
+        float yEllipsoid;
+        float zEllipsoid;
+        float xSphere;
+        float ySphere;
+        float zSphere;
+        xSphere = 6371 * (float) Math.cos(degreesLatitude) * (float) Math.cos(degreesLongitude);
+        ySphere = 6371 * (float) Math.cos(degreesLatitude) * (float) Math.sin(degreesLongitude);
+        zSphere = 6371 * (float) Math.sin(degreesLatitude);
+        xEllipsoid = (float) 6378.14 * (float) Math.cos(degreesLatitude)*(float)Math.cos(degreesLatitude)*(float)Math.cos(degreesLongitude);
+        yEllipsoid = (float) 6378.14 * (float) Math.cos(degreesLatitude) * (float) Math.sin(degreesLongitude);
+        zEllipsoid = (float) 6356.755288 * (float) Math.sin(degreesLatitude);
+        System.out.println("X = " + xEllipsoid + "      X = " + xSphere + "      " + (xEllipsoid - xSphere) + " %");
+	System.out.println("Y = " + yEllipsoid + "      Y = " + ySphere + "      " + (yEllipsoid - ySphere) + " %");
+	System.out.println("Z = " + zEllipsoid + "     Z = " + zSphere + "      " + (zEllipsoid - zSphere) + " %");
+	}
+
+	public static float transformGrades(float degrees, float minutes, float seconds, char direction) {
+        if (direction == 'N' || direction == 'E') {
+            return degrees + minutes / 60 + seconds / 3600;
+        } else {
+            return -(degrees + minutes / 60 + seconds / 3600);
+        }
+    }
+
+    public static float degreesARadians(float degrees) {
+        return degrees * (float) Math.PI / 180;
+    }
+
     private static double ShowEuclideanDistance(double x2, double x1, double y2, double y1) {
         double part1;
         double part2;
         double distanceEuclidean;
         //Euclidean formula
         //part of the formula
-        
-        part1=(x2-x1)*(x2-x1);
-        part2=(y2-y1)*(y2-y1);
+
+        part1 = (x2 - x1) * (x2 - x1);
+        part2 = (y2 - y1) * (y2 - y1);
         distanceEuclidean = Math.sqrt(part1 + part2);
-        
+
         return distanceEuclidean;
     }
 
@@ -242,7 +305,8 @@ public class Meteorological_System_Simulation1 {
 
         return (int) distanceHaversine;
     }
-        private static double showVincentydistance(double lat2, double lat1, double lng2, double lng1, double earthRadius) {
+
+    private static double showVincentydistance(double lat2, double lat1, double lng2, double lng1, double earthRadius) {
         double dLat = Math.toRadians(lat2 - lat1);
         double dLng = Math.toRadians(lng2 - lng1);
         double sindLat = Math.sin(dLat / 2);
@@ -253,12 +317,13 @@ public class Meteorological_System_Simulation1 {
         double dist = earthRadius * c;
         return dist;
     }
+
     private static void showConvertionTemperature(Scanner scanner) {
         double f;
         double c;
         double k;
         System.out.print("Enter degrees Fahrenheit: ");
-        
+
         f = scanner.nextInt();
         c = (f - 32) * 5 / 9;
         k = (f - 32) * 5 / 9 + 273;
@@ -266,11 +331,5 @@ public class Meteorological_System_Simulation1 {
         System.out.printf("\n Kelvin degrees are: " + k);
         System.out.println();
     }
-    
-    
-        
-} 
 
-
-    
-
+}
