@@ -117,15 +117,28 @@ public class Meteorological_System_Simulation1 {
                     System.out.println("❹ ➙ DISTANCE BETWEEN TWO POINTS - ELIPSOID MODEL - VINCENTY");
                     System.out.println("❺ ➙ Exit \n");
                     System.out.printf("Enter your menu option ➙ ");
+                    
                     Scanner coordinate = new Scanner(System.in);
                     option3 = coordinate.nextInt();
+                    
                     System.out.println();
                     switch (option3) {
                         case 1:
                             // XIOMARA tu parte va aquí
                             break;
                         case 2:
-                            // JHOMARA tu parte va aquí
+                             System.out.println("Write the value the X1 of your coordinate in this moment");
+                             double x1=coordinate.nextInt();
+                             System.out.println("Write the value the Y1 of yout coordinate");
+                             double y1=coordinate.nextInt();
+                             System.out.println("Write the value the X2 of your coordinate that you will go");
+                             double x2=coordinate.nextInt();
+                             System.out.println("Write the value the Y2 of yout coordinate");
+                             double y2=coordinate.nextInt();
+                             System.out.println();
+                             double distanceeuclidean = ShowEuclideanDistance(x2, x1, y2, y1);
+                             System.out.println(" The distance that you will travel is --> " + distanceeuclidean);
+                            
                             break;
                         case 3:
                             System.out.printf(" Enter first longitude coordinate: ");
@@ -202,5 +215,20 @@ public class Meteorological_System_Simulation1 {
 
         return (int) distanceHaversine;
     }
+        private static double ShowEuclideanDistance(double x2, double x1, double y2, double y1) {
+        double part1;
+        double part2;
+        double distanceEuclidean;
+        //Euclidean formula
+        //part of the formula
+        
+        part1=(x2-x1)*(x2-x1);
+        part2=(y2-y1)*(y2-y1);
+        distanceEuclidean = Math.sqrt(part1 + part2);
+        
+        return distanceEuclidean;
+    }
+
+    
     //AQUÍ FUNCIONES PLEASE
 }
