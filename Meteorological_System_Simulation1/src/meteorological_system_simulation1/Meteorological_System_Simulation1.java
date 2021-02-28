@@ -383,12 +383,12 @@ case 4:
                     }
 
                 case 5:
-                    System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU ( ＾◡＾)"
+                    System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU (＾◡＾)"
                             + "COME BACK SOON...");
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("ERROR ✘ \n");
+                    System.out.println("ERROR \n");
                     System.exit(0);
                     break;
 
