@@ -124,41 +124,31 @@ public class Meteorological_System_Simulation1 {
                     System.out.println();
                     switch (option3) {
                         case 1:
-                            Scanner scan = new Scanner(System.in);
-                            float degreesLatitude;
-                            float degreesLongitude;
-                            float minutesLatitude;
-                            float minutesLongitude;
-                            float secondsLatitude;
-                            float secondsLongitude;
-                            char directionLatitude;
-                            char directionLongitude;
-                            float degreesTLatitude;
-                            float transformGrades;
+                            Scanner datacoordinate = new Scanner(System.in);
+                            float x;
+                            float y;
+                            float module;
+                            float angle;
+                            float pi = 3.14F;
 
-                            System.out.println("Enter latitude data: \n");
-                            degreesLatitude = scan.nextFloat();
-                            minutesLatitude = scan.nextFloat();
-                            secondsLatitude = scan.nextFloat();
-                            directionLatitude = scan.next().charAt(0);
-                            System.out.println("Enter longitude data:");
-                            degreesLongitude = scan.nextFloat();
-                            minutesLongitude = scan.nextFloat();
-                            secondsLongitude = scan.nextFloat();
-                            directionLongitude = scan.next().charAt(0);
-                            System.out.println("CONVERSION RESULTS:CONVERSION RESULTS");
-                            System.out.println("Data entered: " + degreesLatitude + "* " + minutesLatitude + "' " + secondsLatitude + "' " + Character.toUpperCase(directionLatitude)
-                                    + "; " + degreesLongitude + "* " + minutesLongitude + "' " + secondsLongitude + "'' " + Character.toUpperCase(directionLongitude)
-                                    + "\n ");
-                            System.out.println("Ellipsoid model    Sphere model       Diference");
-                            degreesTLatitude = transformGrades(degreesLatitude, minutesLatitude, secondsLatitude, Character.toUpperCase(directionLatitude));
-                            transformGrades = transformGrades(degreesLongitude, minutesLongitude, secondsLongitude, Character.toUpperCase(directionLongitude));
+                            System.out.print("Enter your cartesian coordinate X->");
+                            x = datacoordinate.nextInt();
+                            System.out.print("Enter your cartesian coordinate Y-> ");
+                            y = datacoordinate.nextInt();
 
-                            degreesTLatitude = degreesARadians(degreesTLatitude);
-                            degreesLongitude = degreesARadians(degreesLongitude);
+                            System.out.println("Your coordiante is " + "(" + x + "i , " + y + "j" + ")");
+                            System.out.println();
 
-                            conversion(degreesTLatitude, degreesLongitude);
+                            System.out.println("In this moment we are converting your coordinate to polar coordinate ");
+                            System.out.println();
 
+                            module = calculateModule(x, y);
+                            System.out.println(" The module of your polar coordinate is --> " + module);
+                            angle = calculateangle(y, x, pi);
+                            System.out.println(" The angle of your polar coordinate is --> " + angle);
+                            System.out.println();
+                            System.out.println("Your polar coordinate " + "(" + module + " , " + angle + ")");
+                            System.out.println();
                             break;
                         case 2:
                             System.out.println("Write the value the X1 of your coordinate in this moment");
@@ -239,34 +229,20 @@ public class Meteorological_System_Simulation1 {
 
     }
 
-    public static void conversion(float degreesLatitude, float degreesLongitude) {
-        float xEllipsoid;
-        float yEllipsoid;
-        float zEllipsoid;
-        float xSphere;
-        float ySphere;
-        float zSphere;
-        xSphere = 6371 * (float) Math.cos(degreesLatitude) * (float) Math.cos(degreesLongitude);
-        ySphere = 6371 * (float) Math.cos(degreesLatitude) * (float) Math.sin(degreesLongitude);
-        zSphere = 6371 * (float) Math.sin(degreesLatitude);
-        xEllipsoid = (float) 6378.14 * (float) Math.cos(degreesLatitude)*(float)Math.cos(degreesLatitude)*(float)Math.cos(degreesLongitude);
-        yEllipsoid = (float) 6378.14 * (float) Math.cos(degreesLatitude) * (float) Math.sin(degreesLongitude);
-        zEllipsoid = (float) 6356.755288 * (float) Math.sin(degreesLatitude);
-        System.out.println("X = " + xEllipsoid + "      X = " + xSphere + "      " + (xEllipsoid - xSphere) + " %");
-	System.out.println("Y = " + yEllipsoid + "      Y = " + ySphere + "      " + (yEllipsoid - ySphere) + " %");
-	System.out.println("Z = " + zEllipsoid + "     Z = " + zSphere + "      " + (zEllipsoid - zSphere) + " %");
-	}
-
-	public static float transformGrades(float degrees, float minutes, float seconds, char direction) {
-        if (direction == 'N' || direction == 'E') {
-            return degrees + minutes / 60 + seconds / 3600;
-        } else {
-            return -(degrees + minutes / 60 + seconds / 3600);
-        }
+    private static float calculateangle(float y, float x, float pi) {
+        float angle;
+        angle = (float) Math.atan(y / x) * (180 / pi);
+        return angle;
     }
 
-    public static float degreesARadians(float degrees) {
-        return degrees * (float) Math.PI / 180;
+    private static float calculateModule(float x, float y) {
+        float module;
+        float X;
+        X = (float) Math.pow(x, 2);
+        float Y;
+        Y = (float) Math.pow(y, 2);
+        module = (float) Math.sqrt(X + Y);
+        return module;
     }
 
     private static double ShowEuclideanDistance(double x2, double x1, double y2, double y1) {
