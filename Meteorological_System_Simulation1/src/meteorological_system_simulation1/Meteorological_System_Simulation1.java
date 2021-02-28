@@ -1,6 +1,8 @@
 package meteorological_system_simulation1;
 
 import java.util.Scanner;
+import static java.lang.Math.*;
+import java.util.ArrayList;
 
 public class Meteorological_System_Simulation1 {
 
@@ -127,13 +129,13 @@ public class Meteorological_System_Simulation1 {
                             int option4;
                             System.out.println("COORDINATE CONVERSION ");
                             System.out.println("❶ ➙ RECTANGULAR TO POLAR COORDINATES");
-                            System.out.println("❷ ➙ CONVERT DEGREE TO UTM");
-                            System.out.println("❸ ➙ UTM TO CONVERT DEGREE");
+                            System.out.println("❷ ➙ GPS (LATITUDE/LONGITUDE)TO WORLD COORDINATES");
+                            System.out.println("❸ ➙ WORLD COORDINATES TO GPS (LATITUDE/LONGITUDE)");
                             System.out.println("❹ ➙ Exit \n");
                             System.out.printf("Enter your menu option ➙ ");
                             option4 = coordinate.nextInt();
                             System.out.println();
-                            switch (option3) {
+                            switch (option4) {
                                 case 1:
                                     Scanner datacoordinate = new Scanner(System.in);
                                     float x;
@@ -142,9 +144,9 @@ public class Meteorological_System_Simulation1 {
                                     float angle;
                                     float pi = 3.14F;
 
-                                    System.out.print("Enter your cartesian coordinate X->");
+                                    System.out.print("Enter your cartesian coordinate X ➙");
                                     x = datacoordinate.nextInt();
-                                    System.out.print("Enter your cartesian coordinate Y-> ");
+                                    System.out.print("Enter your cartesian coordinate Y ➙ ");
                                     y = datacoordinate.nextInt();
 
                                     System.out.println("Your coordiante is " + "(" + x + "i , " + y + "j" + ")");
@@ -154,30 +156,48 @@ public class Meteorological_System_Simulation1 {
                                     System.out.println();
 
                                     module = calculateModule(x, y);
-                                    System.out.println(" The module of your polar coordinate is --> " + module);
+                                    System.out.println(" The module of your polar coordinate is ➙ " + module);
                                     angle = calculateangle(y, x, pi);
-                                    System.out.println(" The angle of your polar coordinate is --> " + angle);
+                                    System.out.println(" The angle of your polar coordinate is ➙ " + angle);
                                     System.out.println();
                                     System.out.println("Your polar coordinate " + "(" + module + " , " + angle + ")");
                                     System.out.println();
                                     break;
                                 case 2:
-                                    //
+                                    Scanner dataGPS = new Scanner(System.in);
+                                    double GPSx;
+                                    double GPSy;
+                                    System.out.printf("Enter de longitud (GPS)➙ ");
+                                    GPSx = dataGPS.nextDouble();
+                                    System.out.printf("Enter de latitud (GPS) ➙ ");
+                                    GPSy = dataGPS.nextDouble();
+                                    lon2x(GPSx);
+                                    lat2y(GPSy);
+                                    System.out.println();
                                     break;
                                 case 3:
-                                    //
+                                    Scanner dataWC = new Scanner(System.in);
+                                    double longitude;
+                                    double latitude;
+                                    System.out.printf("Enter X (World Coordinates)➙ ");
+                                    longitude = dataWC.nextDouble();
+                                    System.out.printf("Enter Y (World Coordinates)➙ ");
+                                    latitude = dataWC.nextDouble();
+                                    x2lng(longitude);
+                                    y2lat(latitude);
+                                    System.out.println();
                                     break;
                                 case 4:
                                     System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU ( ＾◡＾)"
                                             + "COME BACK SOON...");
                                     System.exit(0);
+                                    break;
                                 default:
                                     System.out.println("ERROR ✘ \n");
                                     System.exit(0);
                                     break;
-
                             }
-
+                            break;
                         case 2:
                             System.out.println("Write the value the X1 of your coordinate in this moment");
                             double x1 = coordinate.nextDouble();
@@ -255,6 +275,32 @@ public class Meteorological_System_Simulation1 {
 
         } while (option < 4);
 
+    }
+
+    public static void lon2x(double lon) {
+        double x;
+        x = (lon + 180) / 360 * 256;
+        System.out.printf("X: " + x);
+    }
+
+    public static void lat2y(double aLat) {
+        double y;
+        y = ((1 - Math.log(Math.tan(aLat * Math.PI / 180) + 1 / Math.cos(aLat
+                * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, 0)) * 256;
+        System.out.printf(", Y: " + y);
+    }
+
+    public static void x2lng(double x) {
+        double longitud;
+        longitud = x * 360 / 256 - 180;
+        System.out.println("Longitud: " + longitud);
+    }
+
+    public static void y2lat(double y) {
+        double z = Math.pow(Math.E, (2 * Math.PI * (1 - y / 128)));
+        double latitud;
+        latitud = Math.asin((z - 1) / (z + 1)) * 180 / Math.PI;
+        System.out.println("Latitude: " + latitud);
     }
 
     private static float calculateangle(float y, float x, float pi) {
