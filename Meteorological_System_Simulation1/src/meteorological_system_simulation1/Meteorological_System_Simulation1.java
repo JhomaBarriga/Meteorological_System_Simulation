@@ -124,32 +124,60 @@ public class Meteorological_System_Simulation1 {
                     System.out.println();
                     switch (option3) {
                         case 1:
-                            Scanner datacoordinate = new Scanner(System.in);
-                            float x;
-                            float y;
-                            float module;
-                            float angle;
-                            float pi = 3.14F;
-
-                            System.out.print("Enter your cartesian coordinate X->");
-                            x = datacoordinate.nextInt();
-                            System.out.print("Enter your cartesian coordinate Y-> ");
-                            y = datacoordinate.nextInt();
-
-                            System.out.println("Your coordiante is " + "(" + x + "i , " + y + "j" + ")");
+                            int option4;
+                            System.out.println("COORDINATE CONVERSION ");
+                            System.out.println("❶ ➙ RECTANGULAR TO POLAR COORDINATES");
+                            System.out.println("❷ ➙ CONVERT DEGREE TO UTM");
+                            System.out.println("❸ ➙ UTM TO CONVERT DEGREE");
+                            System.out.println("❹ ➙ Exit \n");
+                            System.out.printf("Enter your menu option ➙ ");
+                            option4 = coordinate.nextInt();
                             System.out.println();
+                            switch (option3) {
+                                case 1:
+                                    Scanner datacoordinate = new Scanner(System.in);
+                                    float x;
+                                    float y;
+                                    float module;
+                                    float angle;
+                                    float pi = 3.14F;
 
-                            System.out.println("In this moment we are converting your coordinate to polar coordinate ");
-                            System.out.println();
+                                    System.out.print("Enter your cartesian coordinate X->");
+                                    x = datacoordinate.nextInt();
+                                    System.out.print("Enter your cartesian coordinate Y-> ");
+                                    y = datacoordinate.nextInt();
 
-                            module = calculateModule(x, y);
-                            System.out.println(" The module of your polar coordinate is --> " + module);
-                            angle = calculateangle(y, x, pi);
-                            System.out.println(" The angle of your polar coordinate is --> " + angle);
-                            System.out.println();
-                            System.out.println("Your polar coordinate " + "(" + module + " , " + angle + ")");
-                            System.out.println();
-                            break;
+                                    System.out.println("Your coordiante is " + "(" + x + "i , " + y + "j" + ")");
+                                    System.out.println();
+
+                                    System.out.println("In this moment we are converting your coordinate to polar coordinate ");
+                                    System.out.println();
+
+                                    module = calculateModule(x, y);
+                                    System.out.println(" The module of your polar coordinate is --> " + module);
+                                    angle = calculateangle(y, x, pi);
+                                    System.out.println(" The angle of your polar coordinate is --> " + angle);
+                                    System.out.println();
+                                    System.out.println("Your polar coordinate " + "(" + module + " , " + angle + ")");
+                                    System.out.println();
+                                    break;
+                                case 2:
+                                    //
+                                    break;
+                                case 3:
+                                    //
+                                    break;
+                                case 4:
+                                    System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU ( ＾◡＾)"
+                                            + "COME BACK SOON...");
+                                    System.exit(0);
+                                default:
+                                    System.out.println("ERROR ✘ \n");
+                                    System.exit(0);
+                                    break;
+
+                            }
+
                         case 2:
                             System.out.println("Write the value the X1 of your coordinate in this moment");
                             double x1 = coordinate.nextDouble();
