@@ -17,7 +17,7 @@ public class Meteorological_System_Simulation1 {
             System.out.println("❸ ➙ TEMPERATURE CONVERSION");
             System.out.println("❹ ➙ AVERAGUE TEMPERATURE");
             System.out.println("❺ ➙ AVERAGUE RAIN");
-            System.out.println("❺  ➙ EXIT");
+            System.out.println("❻  ➙ EXIT");
             System.out.printf("Enter your menu option --> ");
             option = scanner.nextInt();
             switch (option) {
