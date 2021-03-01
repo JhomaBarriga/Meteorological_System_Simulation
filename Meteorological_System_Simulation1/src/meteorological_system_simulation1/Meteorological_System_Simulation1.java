@@ -610,5 +610,59 @@ case 5:
         }
         return count;
     }
+    
+   Scanner entry = new Scanner(System.in);
+		float average  = 0;
+		float sum = 0;
+		int more = 0;
+		int minor = 0;
+ 
+		int[] miArrangementclimate = new int[10];
+		for (int k = 0; i < 10; i++) {
+			System.out.print("Enter the rainfall number in the position " + (k) + " :");
+			miArrangementclimate[k] = entry.nextInt();
+		}
+		
+		for (int i = 0; i < miArrangementclimate.length; i++) {
+			sum += miArrangementclimate[k];			
+			if (more < miArrangementclimate[k]) {
+				more = miArrangementclimate[k];
+			}
+			System.out.println(String.format("Position[%d] Element (hail, wind): %d", k,
+					miArrangementclimate[k]));
+		}
+		minor = more;
+		
+		for (int i = 0; i < miArrangementclimate.length; i++) {
+			if (minor > miArrangementclimate[k]) {
+				minor = miArrangementclimate[k];
+			}
+		}
+               
+                average  = sum / miArrangementclimate.length;
+		System.out.println("***---------END--------***");
+		
+		int cont;
+		for (int i = 0; i < miArrangementclimate.length; i++) {
+			cont = 0;
+			for (int j = k; j < miArrangementclimate.length; j++) {
+				if (miArrangementclimate[k] == miArrangementclimate[j]) {
+					cont++;
+				}
+			}
+			System.out.println(String.format("The number %d is repeated %d times",
+					miArrangementclimate[k], cont));
+		}
+		System.out
+				.println(String
+						.format("The sum is %.2f, the average is %.2f, the largest is %d, the child is %d",
+								sum, average , more, minor));
+
+    private static class average {
+
+        public average() {
+        }
+    }
+ 
 
 }
