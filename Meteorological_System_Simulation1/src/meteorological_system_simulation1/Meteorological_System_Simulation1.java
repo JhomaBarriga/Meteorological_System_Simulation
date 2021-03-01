@@ -15,7 +15,8 @@ public class Meteorological_System_Simulation1 {
             System.out.println("❶ ➙ METEOROLOGICAL SYSTEM ");
             System.out.println("❷ ➙ GEOESPATIAL CALCULATOR");
             System.out.println("❸ ➙ TEMPERATURE CONVERSION");
-            System.out.println("❹ ➙ WEATHER ARRAYS");
+            System.out.println("❹ ➙ AVERAGUE TEMPERATURE");
+            System.out.println("❺ ➙ AVERAGUE RAIN");
             System.out.println("❺  ➙ EXIT");
             System.out.printf("Enter your menu option --> ");
             option = scanner.nextInt();
@@ -263,7 +264,47 @@ public class Meteorological_System_Simulation1 {
 
                     showConvertionTemperature(scanner);
                     break;
-case 4:
+                case 4:
+                    int quantity,
+                     negativeTemperatures;
+                    double temperatureValue,
+                     temperaturesRanges;
+                    double higherTemperature,
+                     lowerTemperature;
+                    double[] temperatures1;
+                    Scanner averageTemperature = new Scanner(System.in);
+
+                    temperaturesRanges = 0;
+                    negativeTemperatures = 0;
+                    higherTemperature = -100;
+                    lowerTemperature = 100;
+
+                    System.out.println("---QUITO---");
+                    System.out.println("HOW MANY TEMPERATURES YOU WANT TO ENTER");
+                    quantity = averageTemperature.nextInt();
+                    System.out.println("");
+
+                    temperatures1 = new double[quantity];
+
+            readTemperatureElements(quantity, averageTemperature, temperatures1);
+                    for (int i = 0; i < quantity; i++) {
+                        temperaturesRanges = calculateTemperaturesRanges(temperaturesRanges, temperatures1, i);
+
+                higherTemperature = calculateHigherTemperature(temperatures1, i, higherTemperature);
+                lowerTemperature = calculateLowerTemperature(temperatures1, i, lowerTemperature);
+                negativeTemperatures = calculateNegativeTemperatures(temperatures1, i, negativeTemperatures);
+                    }
+
+                    System.out.println("--------");
+                    System.out.println("The Temperature Average is:" + (temperaturesRanges / quantity));
+                    System.out.println("The Higher Temperature is:" + higherTemperature);
+                    System.out.println("The Lower Tempereature is:" + lowerTemperature);
+                    System.out.println("The Numbers of Temperatures Under 0 are:" + negativeTemperatures);
+                    System.out.println("--------");
+                    System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU (＾◡＾)"
+                            + "COME BACK SOON...");
+                    break;
+case 5:
                     int count = 0;
                     int sum = 0;
                     double average;
@@ -382,7 +423,7 @@ case 4:
 
                     }
 
-                case 5:
+                case 6:
                     System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU (＾◡＾)"
                             + "COME BACK SOON...");
                     System.exit(0);
@@ -397,7 +438,43 @@ case 4:
         } while (option < 4);
 
     }
+  
 
+    public static double calculateTemperaturesRanges(double temperaturesRanges, double[] temperatures1, int i) {
+        temperaturesRanges = temperaturesRanges + temperatures1[i];
+        return temperaturesRanges;
+    }
+
+    public static int calculateNegativeTemperatures(double[] temperatures1, int i, int negativeTemperatures) {
+        if (temperatures1[i] < 0) {
+            negativeTemperatures = negativeTemperatures + 1;
+        }
+        return negativeTemperatures;
+    }
+
+    public static double calculateLowerTemperature(double[] temperatures1, int i, double lowerTemperature) {
+        if (temperatures1[i] < lowerTemperature) {
+            lowerTemperature = temperatures1[i];
+        }
+        return lowerTemperature;
+    }
+
+    public static double calculateHigherTemperature(double[] temperatures1, int i, double higherTemperature) {
+        if (temperatures1[i] > higherTemperature) {
+            higherTemperature = temperatures1[i];
+        }
+        return higherTemperature;
+    }
+
+    public static void readTemperatureElements(int quantity, Scanner averageTemperature, double[] temperatures1) {
+        double temperatureValue;
+        for (int i = 0; i < quantity; i++) {
+            System.out.println("Enter temperature" + (i + 1) + ":");
+            temperatureValue = averageTemperature.nextDouble();
+            temperatures1[i] = temperatureValue;
+        }
+    }
+    
     public static void lon2x(double lon) {
         double x;
         x = (lon + 180) / 360 * 256;
