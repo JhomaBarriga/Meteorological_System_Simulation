@@ -286,13 +286,13 @@ public class Meteorological_System_Simulation1 {
 
                     temperatures1 = new double[quantity];
 
-            readTemperatureElements(quantity, averageTemperature, temperatures1);
+                    readTemperatureElements(quantity, averageTemperature, temperatures1);
                     for (int i = 0; i < quantity; i++) {
                         temperaturesRanges = calculateTemperaturesRanges(temperaturesRanges, temperatures1, i);
 
-                higherTemperature = calculateHigherTemperature(temperatures1, i, higherTemperature);
-                lowerTemperature = calculateLowerTemperature(temperatures1, i, lowerTemperature);
-                negativeTemperatures = calculateNegativeTemperatures(temperatures1, i, negativeTemperatures);
+                        higherTemperature = calculateHigherTemperature(temperatures1, i, higherTemperature);
+                        lowerTemperature = calculateLowerTemperature(temperatures1, i, lowerTemperature);
+                        negativeTemperatures = calculateNegativeTemperatures(temperatures1, i, negativeTemperatures);
                     }
 
                     System.out.println("--------");
@@ -304,7 +304,7 @@ public class Meteorological_System_Simulation1 {
                     System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU (＾◡＾)"
                             + "COME BACK SOON...");
                     break;
-case 5:
+                case 5:
                     int count = 0;
                     int sum = 0;
                     double average;
@@ -438,7 +438,6 @@ case 5:
         } while (option < 4);
 
     }
-  
 
     public static double calculateTemperaturesRanges(double temperaturesRanges, double[] temperatures1, int i) {
         temperaturesRanges = temperaturesRanges + temperatures1[i];
@@ -474,7 +473,7 @@ case 5:
             temperatures1[i] = temperatureValue;
         }
     }
-    
+
     public static void lon2x(double lon) {
         double x;
         x = (lon + 180) / 360 * 256;
@@ -610,59 +609,5 @@ case 5:
         }
         return count;
     }
-    
-   Scanner entry = new Scanner(System.in);
-		float average  = 0;
-		float sum = 0;
-		int more = 0;
-		int minor = 0;
- 
-		int[] miArrangementclimate = new int[10];
-		for (int k = 0; i < 10; i++) {
-			System.out.print("Enter the rainfall number in the position " + (k) + " :");
-			miArrangementclimate[k] = entry.nextInt();
-		}
-		
-		for (int i = 0; i < miArrangementclimate.length; i++) {
-			sum += miArrangementclimate[k];			
-			if (more < miArrangementclimate[k]) {
-				more = miArrangementclimate[k];
-			}
-			System.out.println(String.format("Position[%d] Element (hail, wind): %d", k,
-					miArrangementclimate[k]));
-		}
-		minor = more;
-		
-		for (int i = 0; i < miArrangementclimate.length; i++) {
-			if (minor > miArrangementclimate[k]) {
-				minor = miArrangementclimate[k];
-			}
-		}
-               
-                average  = sum / miArrangementclimate.length;
-		System.out.println("***---------END--------***");
-		
-		int cont;
-		for (int i = 0; i < miArrangementclimate.length; i++) {
-			cont = 0;
-			for (int j = k; j < miArrangementclimate.length; j++) {
-				if (miArrangementclimate[k] == miArrangementclimate[j]) {
-					cont++;
-				}
-			}
-			System.out.println(String.format("The number %d is repeated %d times",
-					miArrangementclimate[k], cont));
-		}
-		System.out
-				.println(String
-						.format("The sum is %.2f, the average is %.2f, the largest is %d, the child is %d",
-								sum, average , more, minor));
-
-    private static class average {
-
-        public average() {
-        }
-    }
- 
 
 }
