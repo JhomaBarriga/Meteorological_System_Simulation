@@ -215,7 +215,14 @@ public class Meteorological_System_Simulation1 {
 
                     break;
                 case 3:
-                    showConvertionTemperature(scanner);
+
+                    System.out.print("Enter degrees Fahrenheit: ");
+                    double Fahrenheit = scanner.nextInt();
+                    double Celsius;
+                    Celsius = showConvertionTemperature(Fahrenheit);
+                    System.out.printf("The degrees in celsius are;" + Celsius);
+                    System.out.println();
+
                     break;
                 case 4:
                     int quantity,
@@ -261,18 +268,8 @@ public class Meteorological_System_Simulation1 {
                     int count = 0;
                     int sum = 0;
                     double average;
-                    System.out.println("1 ➙ JANUARY ");
-                    System.out.println("2 ➙ FEBRUARY");
-                    System.out.println("3 ➙ MARCH");
-                    System.out.println("4 ➙ APRIL");
-                    System.out.println("5 ➙ MAY");
-                    System.out.println("6 ➙ JUNE");
-                    System.out.println("7 ➙ JULY");
-                    System.out.println("8 ➙ AGOST");
-                    System.out.println("9 ➙ SEPTEMBER");
-                    System.out.println("10 ➙ OCTOBER");
-                    System.out.println("11 ➙ NOVEMBER");
-                    System.out.println("12 ➙ DECEMBER");
+                    showMonths();
+
                     System.out.println("13 ➙ Exit ✘ \n");
                     System.out.printf("Enter your menu option --> ");
                     option = scanner.nextInt();
@@ -284,84 +281,84 @@ public class Meteorological_System_Simulation1 {
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 2:
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 3:
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 4:
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 5:
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 6:
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 7:
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 8:
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 9:
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 10:
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 11:
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 12:
                             sum = readTemperature(weeks, temperatures, input, sum);
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
-                            calculateRain(average, count);
+                            showProbabitityOfRain(average, count);
                             break;
 
                         case 13:
@@ -390,6 +387,27 @@ public class Meteorological_System_Simulation1 {
 
         } while (option < 4);
 
+    }
+
+    private static double showConvertionTemperature(double Fahrenheit) {
+        double Celsius;
+        Celsius = (Fahrenheit - 32) * 5 / 9;
+        return Celsius;
+    }
+
+    private static void showMonths() {
+        System.out.println("1 ➙ JANUARY ");
+        System.out.println("2 ➙ FEBRUARY");
+        System.out.println("3 ➙ MARCH");
+        System.out.println("4 ➙ APRIL");
+        System.out.println("5 ➙ MAY");
+        System.out.println("6 ➙ JUNE");
+        System.out.println("7 ➙ JULY");
+        System.out.println("8 ➙ AGOST");
+        System.out.println("9 ➙ SEPTEMBER");
+        System.out.println("10 ➙ OCTOBER");
+        System.out.println("11 ➙ NOVEMBER");
+        System.out.println("12 ➙ DECEMBER");
     }
 
     private static void printCoordinateConversion() {
@@ -591,21 +609,7 @@ public class Meteorological_System_Simulation1 {
         return dist;
     }
 
-    private static void showConvertionTemperature(Scanner scanner) {
-        double f;
-        double c;
-        double k;
-        System.out.print("Enter degrees Fahrenheit: ");
-
-        f = scanner.nextInt();
-        c = (f - 32) * 5 / 9;
-        k = (f - 32) * 5 / 9 + 273;
-        System.out.printf("The degrees in celsius are;" + c);
-        System.out.printf("\n Kelvin degrees are: " + k);
-        System.out.println();
-    }
-
-    private static void calculateRain(double average, int count) {
+    private static void showProbabitityOfRain(double average, int count) {
         System.out.printf("Average temp = %.1f\n", average);
         if (average <= 20) {
             System.out.println("There is a 95% probability of rain that week.");
