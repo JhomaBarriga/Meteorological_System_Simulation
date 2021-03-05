@@ -1,5 +1,7 @@
 package meteorological_system_simulation1;
+
 import java.util.Scanner;
+
 public class Meteorological_System_Simulation1 {
 
     public static void main(String[] args) {
@@ -227,7 +229,13 @@ public class Meteorological_System_Simulation1 {
                     quantity = averageTemperature.nextInt();
                     System.out.println("");
                     temperatures1 = new double[quantity];
-                    readTemperatureElements(quantity, averageTemperature, temperatures1);
+                    
+                    for (int i = 0; i < quantity; i++) {
+                        System.out.println("Enter temperature" + (i + 1) + ":");
+                        temperatureValue = averageTemperature.nextDouble();
+                        temperatures1[i] = temperatureValue;
+                    }
+                   
                     for (int i = 0; i < quantity; i++) {
                         temperaturesRanges = calculateTemperaturesRanges(temperaturesRanges, temperatures1, i);
                         higherTemperature = calculateHigherTemperature(temperatures1, i, higherTemperature);
@@ -476,15 +484,6 @@ public class Meteorological_System_Simulation1 {
             higherTemperature = temperatures1[i];
         }
         return higherTemperature;
-    }
-
-    public static void readTemperatureElements(int quantity, Scanner averageTemperature, double[] temperatures1) {
-        double temperatureValue;
-        for (int i = 0; i < quantity; i++) {
-            System.out.println("Enter temperature" + (i + 1) + ":");
-            temperatureValue = averageTemperature.nextDouble();
-            temperatures1[i] = temperatureValue;
-        }
     }
 
     public static void lon2x(double lon) {
