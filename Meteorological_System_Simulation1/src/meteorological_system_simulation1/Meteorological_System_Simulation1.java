@@ -12,23 +12,11 @@ public class Meteorological_System_Simulation1 {
         boolean mainLoop = true;
         int option;
         do {
-            System.out.println("❶ ➙ METEOROLOGICAL SYSTEM ");
-            System.out.println("❷ ➙ GEOESPATIAL CALCULATOR");
-            System.out.println("❸ ➙ TEMPERATURE CONVERSION");
-            System.out.println("❹ ➙ AVERAGUE TEMPERATURE");
-            System.out.println("❺ ➙ AVERAGUE RAIN");
-            System.out.println("❻  ➙ EXIT");
-            System.out.printf("Enter your menu option --> ");
+            printPrincipalMenu();
             option = scanner.nextInt();
             switch (option) {
                 case 1:
-                    System.out.println("----------------------------------------");
-                    System.out.println("【ⓂⒺⓉⒺⓄⓇⓄⓁⓄⒼⒾⒸⒶⓁ ⓈⓎⓈⓉⒺⓂ】 ");
-                    System.out.println("---------------------------------------- \n");
-                    System.out.println("If you are planning to do a road trip in "
-                            + "Simon Bolívar Avenue");
-                    System.out.println("You must check some meteorological "
-                            + "conditions to avoid a crash \n");
+                    printMeteorologicalSystem();
 
                     Scanner data = new Scanner(System.in);
                     String name;
@@ -40,12 +28,7 @@ public class Meteorological_System_Simulation1 {
                     System.out.println("Answer the following questions ➘ \n");
 
                     int option1;
-                    System.out.println("YOUR UBICATION \n");
-                    System.out.println("❶ ➙ Carapungo until International University");
-                    System.out.println("❷ ➙ International University until Puengasi");
-                    System.out.println("❸ ➙ Puegasi until South Quicenter");
-                    System.out.println("❹ ➙ Exit ✘ \n");
-                    System.out.printf("Enter your menu option about your ubication ➙ ");
+                    printUbication();
                     option1 = data.nextInt();
                     System.out.println();
                     switch (option1) {
@@ -69,12 +52,7 @@ public class Meteorological_System_Simulation1 {
                             break;
                     }
                     int option2;
-                    System.out.println("WEATHER");
-                    System.out.println("❶ ➙ Sunny day ☀");
-                    System.out.println("❷ ➙ Cloudy day ☁");
-                    System.out.println("❸ ➙ Rainy day ☂");
-                    System.out.println("❹ ➙ Exit ✘ \n");
-                    System.out.printf("Enter your menu option about the weather ➙ ");
+                    printWeather();
                     option2 = data.nextInt();
                     System.out.println();
                     switch (option2) {
@@ -98,30 +76,11 @@ public class Meteorological_System_Simulation1 {
                             break;
                     }
 
-                    String ubication = String.valueOf(option);
-                    String wather = String.valueOf(option1);
-                    System.out.println(name + " these are the forecasts we can give you : \n");
-
-                    if (option == 1 && option1 == 3) {
-                        System.out.println("IT IS NOT SAFE TO DRIVE! ☹ \n");
-                    } else if (option == 2 && option1 == 3) {
-                        System.out.println("IT IS NOT SAFE TO DRIVE! ☹ \n");
-                    } else if (option == 3 && option1 == 3) {
-                        System.out.println("IT IS NOT SAFE TO DRIVE! ☹ \n");
-                    } else {
-                        System.out.println("IT IS SAFE TO DRIVE! ☺ \n");
-                    }
-
+                    printForecasts(option, option1, name);
                     break;
                 case 2:
                     int option3;
-                    System.out.println("GEOESPATIAL CALCULATOR");
-                    System.out.println("❶ ➙ COORDINATE CONVERSION ");
-                    System.out.println("❷ ➙ EUCLIDIAN DISTANCE BETWEEN TWO POINTS");
-                    System.out.println("❸ ➙ DISTANCE BETWEEN TWO POINTS - SPHERICAL MODEL - HAVERSINE");
-                    System.out.println("❹ ➙ DISTANCE BETWEEN TWO POINTS - ELIPSOID MODEL - VINCENTY");
-                    System.out.println("❺ ➙ Exit \n");
-                    System.out.printf("Enter your menu option ➙ ");
+                    printGeoespatialCalculator();
 
                     Scanner coordinate = new Scanner(System.in);
                     option3 = coordinate.nextInt();
@@ -130,12 +89,7 @@ public class Meteorological_System_Simulation1 {
                     switch (option3) {
                         case 1:
                             int option4;
-                            System.out.println("COORDINATE CONVERSION ");
-                            System.out.println("❶ ➙ RECTANGULAR TO POLAR COORDINATES");
-                            System.out.println("❷ ➙ GPS (LATITUDE/LONGITUDE)TO WORLD COORDINATES");
-                            System.out.println("❸ ➙ WORLD COORDINATES TO GPS (LATITUDE/LONGITUDE)");
-                            System.out.println("❹ ➙ Exit \n");
-                            System.out.printf("Enter your menu option ➙ ");
+                            printCoordinateConversion();
                             option4 = coordinate.nextInt();
                             System.out.println();
                             switch (option4) {
@@ -261,7 +215,6 @@ public class Meteorological_System_Simulation1 {
 
                     break;
                 case 3:
-
                     showConvertionTemperature(scanner);
                     break;
                 case 4:
@@ -279,7 +232,7 @@ public class Meteorological_System_Simulation1 {
                     higherTemperature = -100;
                     lowerTemperature = 100;
 
-                    System.out.println("---QUITO---");
+                    System.out.println("--- QUITO ---");
                     System.out.println("HOW MANY TEMPERATURES YOU WANT TO ENTER");
                     quantity = averageTemperature.nextInt();
                     System.out.println("");
@@ -437,6 +390,79 @@ public class Meteorological_System_Simulation1 {
 
         } while (option < 4);
 
+    }
+
+    private static void printCoordinateConversion() {
+        System.out.println("COORDINATE CONVERSION ");
+        System.out.println("❶ ➙ RECTANGULAR TO POLAR COORDINATES");
+        System.out.println("❷ ➙ GPS (LATITUDE/LONGITUDE)TO WORLD COORDINATES");
+        System.out.println("❸ ➙ WORLD COORDINATES TO GPS (LATITUDE/LONGITUDE)");
+        System.out.println("❹ ➙ Exit \n");
+        System.out.printf("Enter your menu option ➙ ");
+    }
+
+    private static void printGeoespatialCalculator() {
+        System.out.println("GEOESPATIAL CALCULATOR");
+        System.out.println("❶ ➙ COORDINATE CONVERSION ");
+        System.out.println("❷ ➙ EUCLIDIAN DISTANCE BETWEEN TWO POINTS");
+        System.out.println("❸ ➙ DISTANCE BETWEEN TWO POINTS - SPHERICAL MODEL - HAVERSINE");
+        System.out.println("❹ ➙ DISTANCE BETWEEN TWO POINTS - ELIPSOID MODEL - VINCENTY");
+        System.out.println("❺ ➙ Exit \n");
+        System.out.printf("Enter your menu option ➙ ");
+    }
+
+    private static void printForecasts(int option, int option1, String name) {
+        String ubication = String.valueOf(option);
+        String wather = String.valueOf(option1);
+        System.out.println(name + " these are the forecasts we can give you : \n");
+
+        if (option == 1 && option1 == 3) {
+            System.out.println("IT IS NOT SAFE TO DRIVE! ☹ \n");
+        } else if (option == 2 && option1 == 3) {
+            System.out.println("IT IS NOT SAFE TO DRIVE! ☹ \n");
+        } else if (option == 3 && option1 == 3) {
+            System.out.println("IT IS NOT SAFE TO DRIVE! ☹ \n");
+        } else {
+            System.out.println("IT IS SAFE TO DRIVE! ☺ \n");
+        }
+    }
+
+    private static void printWeather() {
+        System.out.println("WEATHER");
+        System.out.println("❶ ➙ Sunny day ☀");
+        System.out.println("❷ ➙ Cloudy day ☁");
+        System.out.println("❸ ➙ Rainy day ☂");
+        System.out.println("❹ ➙ Exit ✘ \n");
+        System.out.printf("Enter your menu option about the weather ➙ ");
+    }
+
+    private static void printUbication() {
+        System.out.println("YOUR UBICATION \n");
+        System.out.println("❶ ➙ Carapungo until International University");
+        System.out.println("❷ ➙ International University until Puengasi");
+        System.out.println("❸ ➙ Puegasi until South Quicenter");
+        System.out.println("❹ ➙ Exit ✘ \n");
+        System.out.printf("Enter your menu option about your ubication ➙ ");
+    }
+
+    private static void printMeteorologicalSystem() {
+        System.out.println("----------------------------------------");
+        System.out.println("【ⓂⒺⓉⒺⓄⓇⓄⓁⓄⒼⒾⒸⒶⓁ ⓈⓎⓈⓉⒺⓂ】 ");
+        System.out.println("---------------------------------------- \n");
+        System.out.println("If you are planning to do a road trip in "
+                + "Simon Bolívar Avenue");
+        System.out.println("You must check some meteorological "
+                + "conditions to avoid a crash \n");
+    }
+
+    private static void printPrincipalMenu() {
+        System.out.println("❶ ➙ METEOROLOGICAL SYSTEM ");
+        System.out.println("❷ ➙ GEOESPATIAL CALCULATOR");
+        System.out.println("❸ ➙ TEMPERATURE CONVERSION");
+        System.out.println("❹ ➙ AVERAGUE TEMPERATURE");
+        System.out.println("❺ ➙ AVERAGUE RAIN");
+        System.out.println("❻  ➙ EXIT");
+        System.out.printf("Enter your menu option --> ");
     }
 
     public static double calculateTemperaturesRanges(double temperaturesRanges, double[] temperatures1, int i) {
