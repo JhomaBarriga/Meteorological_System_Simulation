@@ -10,7 +10,52 @@ public class Meteorological_System_Simulation1 {
         Scanner scanner = new Scanner(System.in);
         Scanner input = new Scanner(System.in);
         boolean mainLoop = true;
+
         int option;
+        int option1;
+        String name;
+        int option2;
+        int option3;
+        int option4;
+        float x;
+        float y;
+        float module;
+        float angle;
+        float pi = 3.14F;
+        double GPSx;
+        double GPSy;
+        double longitude;
+        double latitude;
+        double x1;
+        double y1;
+        double x2;
+        double y2;
+        double longitude1;
+        double longitude2;
+        double latitude1;
+        double latitude2;
+        double result;
+        double earthRadius = 3958.75;
+        double lat1;
+        double lat2;
+        double lng1;
+        double lng2;
+        double dist;
+        double Fahrenheit;
+        double Celsius;
+        int quantity;
+        int negativeTemperatures = 0;
+        double temperatureValue;
+        double temperaturesRanges = 0;
+        double higherTemperature = -100;
+        double lowerTemperature = 100;
+        double[] temperatures1;
+        int count = 0;
+        int sum = 0;
+        double average;
+        int weeks;
+        int[] temperatures;
+
         do {
             printPrincipalMenu();
             option = scanner.nextInt();
@@ -19,7 +64,6 @@ public class Meteorological_System_Simulation1 {
                     printMeteorologicalSystem();
 
                     Scanner data = new Scanner(System.in);
-                    String name;
                     Scanner keyboard = new Scanner(System.in);
                     System.out.printf("Tell us your name, please ➙ ");
                     name = keyboard.nextLine();
@@ -27,7 +71,6 @@ public class Meteorological_System_Simulation1 {
                     System.out.println("Hi " + name + " it will be a pleasure to help you! \n");
                     System.out.println("Answer the following questions ➘ \n");
 
-                    int option1;
                     printUbication();
                     option1 = data.nextInt();
                     System.out.println();
@@ -51,7 +94,7 @@ public class Meteorological_System_Simulation1 {
                             System.exit(0);
                             break;
                     }
-                    int option2;
+
                     printWeather();
                     option2 = data.nextInt();
                     System.out.println();
@@ -79,7 +122,7 @@ public class Meteorological_System_Simulation1 {
                     printForecasts(option, option1, name);
                     break;
                 case 2:
-                    int option3;
+
                     printGeoespatialCalculator();
 
                     Scanner coordinate = new Scanner(System.in);
@@ -88,18 +131,13 @@ public class Meteorological_System_Simulation1 {
                     System.out.println();
                     switch (option3) {
                         case 1:
-                            int option4;
+
                             printCoordinateConversion();
                             option4 = coordinate.nextInt();
                             System.out.println();
                             switch (option4) {
                                 case 1:
                                     Scanner datacoordinate = new Scanner(System.in);
-                                    float x;
-                                    float y;
-                                    float module;
-                                    float angle;
-                                    float pi = 3.14F;
 
                                     System.out.print("Enter your cartesian coordinate X ➙");
                                     x = datacoordinate.nextInt();
@@ -122,8 +160,7 @@ public class Meteorological_System_Simulation1 {
                                     break;
                                 case 2:
                                     Scanner dataGPS = new Scanner(System.in);
-                                    double GPSx;
-                                    double GPSy;
+
                                     System.out.printf("Enter de longitud (GPS)➙ ");
                                     GPSx = dataGPS.nextDouble();
                                     System.out.printf("Enter de latitud (GPS) ➙ ");
@@ -134,8 +171,6 @@ public class Meteorological_System_Simulation1 {
                                     break;
                                 case 3:
                                     Scanner dataWC = new Scanner(System.in);
-                                    double longitude;
-                                    double latitude;
                                     System.out.printf("Enter X (World Coordinates)➙ ");
                                     longitude = dataWC.nextDouble();
                                     System.out.printf("Enter Y (World Coordinates)➙ ");
@@ -157,13 +192,13 @@ public class Meteorological_System_Simulation1 {
                             break;
                         case 2:
                             System.out.println("Write the value the X1 of your coordinate in this moment");
-                            double x1 = coordinate.nextDouble();
+                            x1 = coordinate.nextDouble();
                             System.out.println("Write the value the Y1 of yout coordinate");
-                            double y1 = coordinate.nextDouble();
+                            y1 = coordinate.nextDouble();
                             System.out.println("Write the value the X2 of your coordinate that you will go");
-                            double x2 = coordinate.nextDouble();
+                            x2 = coordinate.nextDouble();
                             System.out.println("Write the value the Y2 of yout coordinate");
-                            double y2 = coordinate.nextDouble();
+                            y2 = coordinate.nextDouble();
                             System.out.println();
                             double distanceeuclidean = ShowEuclideanDistance(x2, x1, y2, y1);
                             System.out.println(" The distance that you will travel is --> " + distanceeuclidean);
@@ -171,34 +206,34 @@ public class Meteorological_System_Simulation1 {
                             break;
                         case 3:
                             System.out.printf(" Enter first longitude coordinate: ");
-                            double longitude1 = coordinate.nextDouble();
+                            longitude1 = coordinate.nextDouble();
                             System.out.println();
                             System.out.printf(" Enter first latitude coordinate: ");
-                            double latitude1 = coordinate.nextDouble();
+                            latitude1 = coordinate.nextDouble();
                             System.out.println();
                             System.out.printf(" Enter second longitude coordinate: ");
-                            double longitude2 = coordinate.nextDouble();
+                            longitude2 = coordinate.nextDouble();
                             System.out.println();
                             System.out.printf(" Enter first latitude coordinate: ");
-                            double latitude2 = coordinate.nextDouble();
+                            latitude2 = coordinate.nextDouble();
                             System.out.println();
-                            double result = calculateDistanceBetweenTwoPointsHaversine(longitude1, latitude1, longitude2, latitude2);
+                            result = calculateDistanceBetweenTwoPointsHaversine(longitude1, latitude1, longitude2, latitude2);
                             System.out.println("The distance between " + latitude1 + ", " + longitude1 + " y "
                                     + latitude2 + ", " + longitude2 + " is " + result + " m");
 
                             break;
                         case 4:
-                            double earthRadius = 3958.75;
+                            earthRadius = 3958.75;
                             System.out.println("enter the latitud 1");
-                            double lat1 = coordinate.nextDouble();
+                            lat1 = coordinate.nextDouble();
                             System.out.println("enter the latitud 2");
-                            double lat2 = coordinate.nextDouble();
+                            lat2 = coordinate.nextDouble();
                             System.out.println("enter the long 1");
-                            double lng1 = coordinate.nextDouble();
+                            lng1 = coordinate.nextDouble();
                             System.out.println("enter the long 2");
-                            double lng2 = coordinate.nextDouble();
+                            lng2 = coordinate.nextDouble();
                             System.out.println();
-                            double dist = showVincentydistance(lat2, lat1, lng2, lng1, earthRadius);
+                            dist = showVincentydistance(lat2, lat1, lng2, lng1, earthRadius);
                             System.out.println("The distance that you will travel is---" + dist);
 
                             break;
@@ -217,27 +252,15 @@ public class Meteorological_System_Simulation1 {
                 case 3:
 
                     System.out.print("Enter degrees Fahrenheit: ");
-                    double Fahrenheit = scanner.nextInt();
-                    double Celsius;
+                    Fahrenheit = scanner.nextInt();
                     Celsius = showConvertionTemperature(Fahrenheit);
                     System.out.printf("The degrees in celsius are;" + Celsius);
                     System.out.println();
 
                     break;
                 case 4:
-                    int quantity,
-                     negativeTemperatures;
-                    double temperatureValue,
-                     temperaturesRanges;
-                    double higherTemperature,
-                     lowerTemperature;
-                    double[] temperatures1;
-                    Scanner averageTemperature = new Scanner(System.in);
 
-                    temperaturesRanges = 0;
-                    negativeTemperatures = 0;
-                    higherTemperature = -100;
-                    lowerTemperature = 100;
+                    Scanner averageTemperature = new Scanner(System.in);
 
                     System.out.println("--- QUITO ---");
                     System.out.println("HOW MANY TEMPERATURES YOU WANT TO ENTER");
@@ -265,17 +288,15 @@ public class Meteorological_System_Simulation1 {
                             + "COME BACK SOON...");
                     break;
                 case 5:
-                    int count = 0;
-                    int sum = 0;
-                    double average;
+
                     showMonths();
 
                     System.out.println("13 ➙ Exit ✘ \n");
                     System.out.printf("Enter your menu option --> ");
                     option = scanner.nextInt();
                     System.out.print("Enter 1 to 4 weeks to be averaged : ");
-                    int weeks = scanner.nextInt();
-                    int[] temperatures = new int[weeks];
+                    weeks = scanner.nextInt();
+                    temperatures = new int[weeks];
                     switch (option) {
                         case 1:
                             sum = readTemperature(weeks, temperatures, input, sum);
