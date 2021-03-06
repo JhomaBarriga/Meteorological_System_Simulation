@@ -19,6 +19,10 @@ public class Meteorological_System_Simulation1 {
         float pi = 3.14F;
         double GPSx;
         double GPSy;
+        double longX;
+        double latY;
+        double xLong;
+        double yLati;
         double longitude;
         double latitude;
         double x1;
@@ -44,6 +48,7 @@ public class Meteorological_System_Simulation1 {
         double higherTemperature = -100;
         double lowerTemperature = 100;
         double[] temperatures1;
+        
 
         do {
             printPrincipalMenu();
@@ -130,8 +135,10 @@ public class Meteorological_System_Simulation1 {
                                     GPSx = scanner.nextDouble();
                                     System.out.printf("Enter de latitud (GPS) ➙ ");
                                     GPSy = scanner.nextDouble();
-                                    lon2x(GPSx);
-                                    lat2y(GPSy);
+                                    longX = calculateX(GPSx);
+                                    System.out.printf("X: " + longX);
+                                    latY = calculateY(GPSy);
+                                    System.out.printf(", Y: " + latY);
                                     System.out.println();
                                     break;
                                 case 3:
@@ -139,8 +146,10 @@ public class Meteorological_System_Simulation1 {
                                     longitude = scanner.nextDouble();
                                     System.out.printf("Enter Y (World Coordinates)➙ ");
                                     latitude = scanner.nextDouble();
-                                    x2lng(longitude);
-                                    y2lat(latitude);
+                                    xLong = calculateLongitude(longitude);
+                                    System.out.println("Longitud: " + xLong);
+                                    yLati = calculateLatitude(latitude);
+                                    System.out.println("Latitude: " + yLati);
                                     System.out.println();
                                     break;
                                 case 4:
@@ -161,7 +170,7 @@ public class Meteorological_System_Simulation1 {
                             System.out.println("Write the value the Y2 of yout coordinate ➙ ");
                             y2 = scanner.nextDouble();
                             System.out.println();
-                            double distanceeuclidean = ShowEuclideanDistance(x2, x1, y2, y1);
+                            double distanceeuclidean = calculateEuclideanDistance(x2, x1, y2, y1);
                             System.out.println(" The distance that you will travel is ➙ " + distanceeuclidean);
                             break;
                         case 3:
@@ -192,7 +201,7 @@ public class Meteorological_System_Simulation1 {
                             System.out.println("enter the long 2 ➙ ");
                             lng2 = scanner.nextDouble();
                             System.out.println();
-                            dist = showVincentydistance(lat2, lat1, lng2, lng1, earthRadius);
+                            dist = calculateVincentydistance(lat2, lat1, lng2, lng1, earthRadius);
                             System.out.println("The distance that you will travel is ➙ " + dist);
                             break;
                         case 5:
@@ -383,30 +392,30 @@ public class Meteorological_System_Simulation1 {
         return higherTemperature;
     }
 
-    public static void lon2x(double lon) {
+    public static double calculateX(double lon) {
         double x;
         x = (lon + 180) / 360 * 256;
-        System.out.printf("X: " + x);
+        return x;
     }
 
-    public static void lat2y(double aLat) {
+    public static double calculateY(double aLat) {
         double y;
         y = ((1 - Math.log(Math.tan(aLat * Math.PI / 180) + 1 / Math.cos(aLat
                 * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, 0)) * 256;
-        System.out.printf(", Y: " + y);
+        return y;
     }
 
-    public static void x2lng(double x) {
-        double longitud;
-        longitud = x * 360 / 256 - 180;
-        System.out.println("Longitud: " + longitud);
+    public static double calculateLongitude(double x) {
+        double longitude;
+        longitude = x * 360 / 256 - 180;
+        return longitude;
     }
 
-    public static void y2lat(double y) {
+    public static double calculateLatitude(double y) {
         double z = Math.pow(Math.E, (2 * Math.PI * (1 - y / 128)));
-        double latitud;
-        latitud = Math.asin((z - 1) / (z + 1)) * 180 / Math.PI;
-        System.out.println("Latitude: " + latitud);
+        double latitude;
+        latitude = Math.asin((z - 1) / (z + 1)) * 180 / Math.PI;
+        return latitude;
     }
 
     private static float calculateangle(float y, float x, float pi) {
@@ -425,7 +434,7 @@ public class Meteorological_System_Simulation1 {
         return module;
     }
 
-    private static double ShowEuclideanDistance(double x2, double x1, double y2, double y1) {
+    private static double calculateEuclideanDistance(double x2, double x1, double y2, double y1) {
         double part1;
         double part2;
         double distanceEuclidean;
@@ -462,7 +471,7 @@ public class Meteorological_System_Simulation1 {
         return (int) distanceHaversine;
     }
 
-    private static double showVincentydistance(double lat2, double lat1, double lng2, double lng1, double earthRadius) {
+    private static double calculateVincentydistance(double lat2, double lat1, double lng2, double lng1, double earthRadius) {
         double dLat = Math.toRadians(lat2 - lat1);
         double dLng = Math.toRadians(lng2 - lng1);
         double sindLat = Math.sin(dLat / 2);
