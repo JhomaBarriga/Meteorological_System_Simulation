@@ -89,13 +89,13 @@ public class Meteorological_System_Simulation1 {
                     System.out.println();
                     switch (option2) {
                         case 1:
-                            System.out.println("Wait a moment please... \n");
+                            printWait();
                             break;
                         case 2:
-                            System.out.println("Wait a moment please... \n");
+                            printWait();
                             break;
                         case 3:
-                            System.out.println("Wait a moment please... \n");
+                            printWait();
                             break;
                         case 4:
                             printFarewell();
@@ -119,25 +119,25 @@ public class Meteorological_System_Simulation1 {
                             switch (option4) {
                                 case 1:
                                     Scanner datacoordinate = new Scanner(System.in);
-                                    System.out.print("Enter your cartesian coordinate X ➙");
+                                    System.out.print("Enter your cartesian coordinate X ➙ ");
                                     x = datacoordinate.nextInt();
                                     System.out.print("Enter your cartesian coordinate Y ➙ ");
                                     y = datacoordinate.nextInt();
-                                    System.out.println("Your coordiante is " + "(" + x + "i , " + y + "j" + ")");
+                                    System.out.println("Your coordiante is ➙ " + "(" + x + "i , " + y + "j" + ")");
                                     System.out.println();
-                                    System.out.println("In this moment we are converting your coordinate to polar coordinate ");
+                                    System.out.println("In this moment we are converting your coordinate to polar coordinate... ");
                                     System.out.println();
                                     module = calculateModule(x, y);
                                     System.out.println(" The module of your polar coordinate is ➙ " + module);
                                     angle = calculateangle(y, x, pi);
                                     System.out.println(" The angle of your polar coordinate is ➙ " + angle);
                                     System.out.println();
-                                    System.out.println("Your polar coordinate " + "(" + module + " , " + angle + ")");
+                                    System.out.println("Your polar coordinate ➙ " + "(" + module + " , " + angle + ")");
                                     System.out.println();
                                     break;
                                 case 2:
                                     Scanner dataGPS = new Scanner(System.in);
-                                    System.out.printf("Enter de longitud (GPS)➙ ");
+                                    System.out.printf("Enter de longitud (GPS) ➙ ");
                                     GPSx = dataGPS.nextDouble();
                                     System.out.printf("Enter de latitud (GPS) ➙ ");
                                     GPSy = dataGPS.nextDouble();
@@ -164,29 +164,29 @@ public class Meteorological_System_Simulation1 {
                             }
                             break;
                         case 2:
-                            System.out.println("Write the value the X1 of your coordinate in this moment");
+                            System.out.println("Write the value the X1 of your coordinate in this moment ➙ ");
                             x1 = coordinate.nextDouble();
-                            System.out.println("Write the value the Y1 of yout coordinate");
+                            System.out.println("Write the value the Y1 of yout coordinate ➙ ");
                             y1 = coordinate.nextDouble();
-                            System.out.println("Write the value the X2 of your coordinate that you will go");
+                            System.out.println("Write the value the X2 of your coordinate that you will go ➙ ");
                             x2 = coordinate.nextDouble();
-                            System.out.println("Write the value the Y2 of yout coordinate");
+                            System.out.println("Write the value the Y2 of yout coordinate ➙ ");
                             y2 = coordinate.nextDouble();
                             System.out.println();
                             double distanceeuclidean = ShowEuclideanDistance(x2, x1, y2, y1);
-                            System.out.println(" The distance that you will travel is --> " + distanceeuclidean);
+                            System.out.println(" The distance that you will travel is ➙ " + distanceeuclidean);
                             break;
                         case 3:
-                            System.out.printf(" Enter first longitude coordinate: ");
+                            System.out.printf(" Enter first longitude coordinate ➙ ");
                             longitude1 = coordinate.nextDouble();
                             System.out.println();
-                            System.out.printf(" Enter first latitude coordinate: ");
+                            System.out.printf(" Enter first latitude coordinate ➙ ");
                             latitude1 = coordinate.nextDouble();
                             System.out.println();
-                            System.out.printf(" Enter second longitude coordinate: ");
+                            System.out.printf(" Enter second longitude coordinate ➙ ");
                             longitude2 = coordinate.nextDouble();
                             System.out.println();
-                            System.out.printf(" Enter first latitude coordinate: ");
+                            System.out.printf(" Enter first latitude coordinate ➙ ");
                             latitude2 = coordinate.nextDouble();
                             System.out.println();
                             result = calculateDistanceBetweenTwoPointsHaversine(longitude1, latitude1, longitude2, latitude2);
@@ -195,17 +195,17 @@ public class Meteorological_System_Simulation1 {
                             break;
                         case 4:
                             earthRadius = 3958.75;
-                            System.out.println("enter the latitud 1");
+                            System.out.println("enter the latitud 1 ➙ ");
                             lat1 = coordinate.nextDouble();
-                            System.out.println("enter the latitud 2");
+                            System.out.println("enter the latitud 2 ➙ ");
                             lat2 = coordinate.nextDouble();
-                            System.out.println("enter the long 1");
+                            System.out.println("enter the long 1 ➙ ");
                             lng1 = coordinate.nextDouble();
-                            System.out.println("enter the long 2");
+                            System.out.println("enter the long 2 ➙ ");
                             lng2 = coordinate.nextDouble();
                             System.out.println();
                             dist = showVincentydistance(lat2, lat1, lng2, lng1, earthRadius);
-                            System.out.println("The distance that you will travel is---" + dist);
+                            System.out.println("The distance that you will travel is ➙ " + dist);
                             break;
                         case 5:
                             printFarewell();
@@ -216,24 +216,23 @@ public class Meteorological_System_Simulation1 {
                     }
                     break;
                 case 3:
-                    System.out.print("Enter degrees Fahrenheit: ");
+                    System.out.print("Enter degrees Fahrenheit ➙ ");
                     Fahrenheit = scanner.nextInt();
                     Celsius = showConvertionTemperature(Fahrenheit);
-                    System.out.printf("The degrees in celsius are;" + Celsius);
+                    System.out.printf("The degrees in Celsius are ➙ " + Celsius);
                     System.out.println();
                     break;
                 case 4:
                     Scanner averageTemperature = new Scanner(System.in);
                     System.out.println("--- QUITO ---");
-                    System.out.println("HOW MANY TEMPERATURES YOU WANT TO ENTER");
+                    System.out.println("HOW MANY TEMPERATURES YOU WANT TO ENTER ➙ ");
                     quantity = averageTemperature.nextInt();
                     System.out.println("");
                     temperatures1 = new double[quantity];
                     
                     for (int i = 0; i < quantity; i++) {
-                        System.out.println("Enter temperature" + (i + 1) + ":");
-                        temperatureValue = averageTemperature.nextDouble();
-                        temperatures1[i] = temperatureValue;
+                        System.out.println("Enter temperature " + (i + 1) + " ➙ ");
+                        temperatures1[i] = averageTemperature.nextDouble();
                     }
                    
                     for (int i = 0; i < quantity; i++) {
@@ -242,92 +241,134 @@ public class Meteorological_System_Simulation1 {
                         lowerTemperature = calculateLowerTemperature(temperatures1, i, lowerTemperature);
                         negativeTemperatures = calculateNegativeTemperatures(temperatures1, i, negativeTemperatures);
                     }
-                    System.out.println("--------");
-                    System.out.println("The Temperature Average is:" + (temperaturesRanges / quantity));
-                    System.out.println("The Higher Temperature is:" + higherTemperature);
-                    System.out.println("The Lower Tempereature is:" + lowerTemperature);
-                    System.out.println("The Numbers of Temperatures Under 0 are:" + negativeTemperatures);
-                    System.out.println("--------");
-                    System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU (＾◡＾)"
-                            + "COME BACK SOON...");
+                    printTemperaturesRanges(temperaturesRanges, quantity, higherTemperature, lowerTemperature, negativeTemperatures);
                     break;
                 case 5:
+                    System.out.println("AVERAGE RAIN: ");
                     showMonths();
                     option = scanner.nextInt();
-                    System.out.print("Enter 1 to 4 weeks to be averaged : ");
+                    System.out.print("Enter 1 to 4 weeks to be averaged ➙ ");
                     weeks = scanner.nextInt();
                     temperatures = new int[weeks];
                     switch (option) {
                         case 1:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
                             readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 2:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
-                            count = readWeeks(weeks, temperatures, average, count);
+                            readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 3:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
-                            count = readWeeks(weeks, temperatures, average, count);
+                            readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 4:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
-                            count = readWeeks(weeks, temperatures, average, count);
+                            readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 5:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
-                            count = readWeeks(weeks, temperatures, average, count);
+                            readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 6:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
-                            count = readWeeks(weeks, temperatures, average, count);
+                            readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 7:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
-                            count = readWeeks(weeks, temperatures, average, count);
+                            readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 8:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
-                            count = readWeeks(weeks, temperatures, average, count);
+                            readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 9:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
-                            count = readWeeks(weeks, temperatures, average, count);
+                            readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 10:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
-                            count = readWeeks(weeks, temperatures, average, count);
+                            readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 11:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
                             count = readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 12:
-                            sum = readTemperature(weeks, temperatures, input, sum);
+                            for (int i = 0; i < weeks; i++) {
+                                System.out.print("Week " + (i + 1) + "'s low temperature in °C ➙ ");
+                                temperatures[i] = input.nextInt();
+                                sum += temperatures[i];
+                            }
                             average = operatorAverage(sum, weeks);
-                            count = readWeeks(weeks, temperatures, average, count);
+                            readWeeks(weeks, temperatures, average, count);
                             showProbabitityOfRain(average, count);
                             break;
                         case 13:
@@ -337,6 +378,7 @@ public class Meteorological_System_Simulation1 {
                             printError();
                             break;
                     }
+                    break;
                 case 6:
                     System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU (＾◡＾)"
                             + "COME BACK SOON...");
@@ -347,7 +389,22 @@ public class Meteorological_System_Simulation1 {
                     break;
             }
 
-        } while (option < 4);
+        } while (option < 7);
+    }
+
+    private static void printTemperaturesRanges(double temperaturesRanges, int quantity, double higherTemperature, double lowerTemperature, int negativeTemperatures) {
+        System.out.println("--------");
+        System.out.println("The Temperature Average is ➙ " + (temperaturesRanges / quantity));
+        System.out.println("The Higher Temperature is ➙ " + higherTemperature);
+        System.out.println("The Lower Tempereature is ➙ " + lowerTemperature);
+        System.out.println("The Numbers of Temperatures Under 0 are ➙ " + negativeTemperatures);
+        System.out.println("--------");
+        System.out.println("IT HAS BEEN A PLEASURE TO HELP YOU (＾◡＾)"
+                + "COME BACK SOON...");
+    }
+
+    private static void printWait() {
+        System.out.println("Wait a moment please... \n");
     }
 
     private static void printMessage() {
@@ -454,10 +511,10 @@ public class Meteorological_System_Simulation1 {
         System.out.println("❶ ➙ METEOROLOGICAL SYSTEM ");
         System.out.println("❷ ➙ GEOESPATIAL CALCULATOR");
         System.out.println("❸ ➙ TEMPERATURE CONVERSION");
-        System.out.println("❹ ➙ AVERAGUE TEMPERATURE");
-        System.out.println("❺ ➙ AVERAGUE RAIN");
-        System.out.println("❻  ➙ EXIT");
-        System.out.printf("Enter your menu option --> ");
+        System.out.println("❹ ➙ AVERAGE TEMPERATURE");
+        System.out.println("❺ ➙ AVERAGE RAIN");
+        System.out.println("❻ ➙ EXIT");
+        System.out.printf("Enter your menu option ➙ ");
     }
 
     public static double calculateTemperaturesRanges(double temperaturesRanges, double[] temperatures1, int i) {
