@@ -27,21 +27,81 @@ public class FrmCalculator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        btnConversionCordenate = new javax.swing.JButton();
+        btneuclidian = new javax.swing.JButton();
+        btnhaversine = new javax.swing.JButton();
+        btnvicenty = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setBackground(new java.awt.Color(102, 255, 204));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
+        jLabel1.setText("GEOESPATIAL CALCULATOR");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("MEMBERS:\nBACUY DIANA\nBARRIGA JHOMARA\nCALDERÓN DAYANA \nCALVACHE EMILIA");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        btnConversionCordenate.setText("Conversion Cordenate");
+
+        btneuclidian.setText("Euclidian ");
+
+        btnhaversine.setText("Haversine");
+
+        btnvicenty.setText("Vicenty");
+        btnvicenty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnvicentyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(63, 63, 63))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btneuclidian)
+                    .addComponent(btnConversionCordenate)
+                    .addComponent(btnhaversine)
+                    .addComponent(btnvicenty)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(btnConversionCordenate)
+                .addGap(18, 18, 18)
+                .addComponent(btneuclidian)
+                .addGap(18, 18, 18)
+                .addComponent(btnhaversine)
+                .addGap(18, 18, 18)
+                .addComponent(btnvicenty)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnvicentyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvicentyActionPerformed
+      
+    }//GEN-LAST:event_btnvicentyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +139,12 @@ public class FrmCalculator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConversionCordenate;
+    private javax.swing.JButton btneuclidian;
+    private javax.swing.JButton btnhaversine;
+    private javax.swing.JButton btnvicenty;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
