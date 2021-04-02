@@ -52,6 +52,11 @@ public class FrmCalculator extends javax.swing.JFrame {
         btneuclidian.setText("Euclidian ");
 
         btnhaversine.setText("Haversine");
+        btnhaversine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhaversineActionPerformed(evt);
+            }
+        });
 
         btnvicenty.setText("Vicenty");
         btnvicenty.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +107,11 @@ public class FrmCalculator extends javax.swing.JFrame {
     private void btnvicentyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvicentyActionPerformed
       
     }//GEN-LAST:event_btnvicentyActionPerformed
+
+    private void btnhaversineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhaversineActionPerformed
+        FrmHaversine dHaversine = new FrmHaversine(this, true);
+        dHaversine.setVisible(true);
+    }//GEN-LAST:event_btnhaversineActionPerformed
 
     /**
      * @param args the command line arguments
