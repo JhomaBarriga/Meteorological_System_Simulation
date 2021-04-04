@@ -201,7 +201,7 @@ public class FrmCalculateangle extends javax.swing.JDialog {
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
        CalculatorController caclulateangleControler = new CalculatorController();
-        txtArea.setText(CalculatorController.show());
+        txtArea.setText(CalculatorController.readangle());
 
 
     }//GEN-LAST:event_btnShowActionPerformed

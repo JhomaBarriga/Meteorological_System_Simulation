@@ -31,7 +31,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btneuclidian" min="-2" max="-2" attributes="0"/>
+                  <Component id="btneuclidean" min="-2" max="-2" attributes="0"/>
                   <Component id="btnConversionCordenate" min="-2" max="-2" attributes="0"/>
                   <Component id="btnhaversine" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="btnvicenty" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -51,7 +51,7 @@
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="btnConversionCordenate" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btneuclidian" min="-2" max="-2" attributes="0"/>
+              <Component id="btneuclidean" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnhaversine" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -100,10 +100,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConversionCordenateActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btneuclidian">
+    <Component class="javax.swing.JButton" name="btneuclidean">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Euclidian "/>
+        <Property name="text" type="java.lang.String" value="Euclidean "/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneuclideanActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnhaversine">
       <Properties>

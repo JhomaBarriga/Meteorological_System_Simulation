@@ -1,6 +1,7 @@
 package ec.edu.espe.calculator.controller;
 
 import ec.edu.espe.calculator.model.Calculateangle;
+import ec.edu.espe.calculator.model.Euclidean;
 import ec.edu.espe.calculator.model.Haversine;
 import utils.FileManager;
 
@@ -15,23 +16,33 @@ public class CalculatorController {
         FileManager.save(data, "haversine");
     }
 
-    public static String read() {
+    public static String readH() {
         String data;
         data = FileManager.read("haversine.csv");
         return data;
     }
-    
-    
 
     public void save(Calculateangle calculateangle) {
-        String data = calculateangle.getY() + ";" + calculateangle.getY() + ";"
+        String data = calculateangle.getY() + "," + calculateangle.getY() + ","
                 + calculateangle.getPi();
         FileManager.save(data, "calculateangle");
     }
 
-    public static String show() {
+    public static String readangle() {
         String data;
-        data = FileManager.show("calculateangle.csv");
+        data = FileManager.read("calculateangle.csv");
+        return data;
+    }
+
+    public void save(Euclidean euclidean) {
+        String data = euclidean.getX1() + "," + euclidean.getY1() + ","
+                + euclidean.getX2() + "," + euclidean.getY2();
+        FileManager.save(data, "euclidean");
+    }
+
+    public static String readE() {
+        String data;
+        data = FileManager.read("euclidean.csv");
         return data;
     }
 

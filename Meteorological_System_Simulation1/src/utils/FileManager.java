@@ -64,7 +64,12 @@ public class FileManager {
     }
 
     //Convertion 
-    //Euclidian
+    public static double calculateangle(double y, double x, double pi) {
+        double angle;
+        angle = (double) Math.atan(y / x) * (180 / pi);
+        return angle;
+    }
+
     //Haversine
     public static int calculateDistanceBetweenTwoPointsHaversine(double longitude1,
             double latitude1, double longitude2, double latitude2) {
@@ -88,25 +93,22 @@ public class FileManager {
 
         return (int) distanceHaversine;
     }
-    //Vincenty
 
-    public static double calculateangle(double y, double x, double pi) {
-        double angle;
-        angle = (double) Math.atan(y / x) * (180 / pi);
-        return angle;
-    }
-    
-       public static String show(String fileName) {
-        String text = " ";
-        try {
-            Scanner s = new Scanner(new File(fileName));
-            while (s.hasNextLine()) {
-                text = text + s.nextLine() + "\n";
-            }
+    //EUCLIDEAN
+  
+     public static double CalculateEuclideanDistance(double x2, double x1, double y2, double y1) {
+        double part1;
+        double part2;
+        double distanceEuclidean;
+        //Euclidean formula
+        //part of the formula
 
-        } catch (FileNotFoundException e) {
-            System.out.println("file not found");
-        }
-        return text;
+        part1 = (x2 - x1) * (x2 - x1);
+        part2 = (y2 - y1) * (y2 - y1);
+        distanceEuclidean = Math.sqrt(part1 + part2);
+
+        return distanceEuclidean;
     }
+
+        //Vincenty
 }

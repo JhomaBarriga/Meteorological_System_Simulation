@@ -230,7 +230,7 @@ public class FrmHaversine extends javax.swing.JDialog {
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
         CalculatorController haversineControler = new CalculatorController();
-        txtArea.setText(CalculatorController.read());
+        txtArea.setText(CalculatorController.readH());
     }//GEN-LAST:event_btnShowActionPerformed
 
     private void txtLng1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLng1ActionPerformed

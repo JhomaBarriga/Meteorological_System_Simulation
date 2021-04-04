@@ -31,7 +31,7 @@ public class FrmCalculator extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         btnConversionCordenate = new javax.swing.JButton();
-        btneuclidian = new javax.swing.JButton();
+        btneuclidean = new javax.swing.JButton();
         btnhaversine = new javax.swing.JButton();
         btnvicenty = new javax.swing.JButton();
 
@@ -54,7 +54,12 @@ public class FrmCalculator extends javax.swing.JFrame {
             }
         });
 
-        btneuclidian.setText("Euclidian ");
+        btneuclidean.setText("Euclidean ");
+        btneuclidean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneuclideanActionPerformed(evt);
+            }
+        });
 
         btnhaversine.setText("Haversine");
         btnhaversine.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +86,7 @@ public class FrmCalculator extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btneuclidian)
+                    .addComponent(btneuclidean)
                     .addComponent(btnConversionCordenate)
                     .addComponent(btnhaversine)
                     .addComponent(btnvicenty)
@@ -98,7 +103,7 @@ public class FrmCalculator extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addComponent(btnConversionCordenate)
                 .addGap(18, 18, 18)
-                .addComponent(btneuclidian)
+                .addComponent(btneuclidean)
                 .addGap(18, 18, 18)
                 .addComponent(btnhaversine)
                 .addGap(18, 18, 18)
@@ -110,7 +115,7 @@ public class FrmCalculator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnvicentyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvicentyActionPerformed
-      
+
     }//GEN-LAST:event_btnvicentyActionPerformed
 
     private void btnhaversineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhaversineActionPerformed
@@ -120,8 +125,13 @@ public class FrmCalculator extends javax.swing.JFrame {
 
     private void btnConversionCordenateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConversionCordenateActionPerformed
         FrmCalculateangle dConversionCordenate = new FrmCalculateangle(this, true);
-        dConversionCordenate.setVisible(true);    
+        dConversionCordenate.setVisible(true);
     }//GEN-LAST:event_btnConversionCordenateActionPerformed
+
+    private void btneuclideanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneuclideanActionPerformed
+        FrmEuclidean dEuclidean = new FrmEuclidean(this, true);
+        dEuclidean.setVisible(true);
+    }//GEN-LAST:event_btneuclideanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,7 +170,7 @@ public class FrmCalculator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConversionCordenate;
-    private javax.swing.JButton btneuclidian;
+    private javax.swing.JButton btneuclidean;
     private javax.swing.JButton btnhaversine;
     private javax.swing.JButton btnvicenty;
     private javax.swing.JLabel jLabel1;

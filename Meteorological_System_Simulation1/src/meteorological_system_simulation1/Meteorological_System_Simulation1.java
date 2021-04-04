@@ -425,7 +425,7 @@ public class Meteorological_System_Simulation1 {
 //// module = calculateModule(x, y);
     //System.out.println(" The module of your polar coordinate is ➙ " + module);
 
-    private static float calculateModule(float x, float y) {
+    public static float calculateModule(float x, float y) {
         float module;
         float X;
         X = (float) Math.pow(x, 2);
@@ -435,7 +435,7 @@ public class Meteorological_System_Simulation1 {
         return module;
     }
 
-    private static double calculateEuclideanDistance(double x2, double x1, double y2, double y1) {
+    public static double calculateEuclideanDistance(double x2, double x1, double y2, double y1) {
         double part1;
         double part2;
         double distanceEuclidean;
@@ -472,7 +472,7 @@ public class Meteorological_System_Simulation1 {
         return (int) distanceHaversine;
     }
 
-    private static double calculateVincentydistance(double lat2, double lat1, double lng2, double lng1, double earthRadius) {
+    public static double calculateVincentydistance(double lat2, double lat1, double lng2, double lng1, double earthRadius) {
         double dLat = Math.toRadians(lat2 - lat1);
         double dLng = Math.toRadians(lng2 - lng1);
         double sindLat = Math.sin(dLat / 2);
