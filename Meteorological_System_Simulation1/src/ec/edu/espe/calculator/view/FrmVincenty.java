@@ -47,8 +47,6 @@ public class FrmVincenty extends javax.swing.JDialog {
         txtLongitud1 = new javax.swing.JTextField();
         txtLatitud1 = new javax.swing.JTextField();
         txtLongitud2 = new javax.swing.JTextField();
-        txtgravity = new javax.swing.JLabel();
-        txtLongitud3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -87,8 +85,6 @@ public class FrmVincenty extends javax.swing.JDialog {
         txtAreaVincenty.setRows(5);
         jScrollPane1.setViewportView(txtAreaVincenty);
 
-        txtgravity.setText("GRAVEDAD");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,16 +107,14 @@ public class FrmVincenty extends javax.swing.JDialog {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(txtgravity))
+                            .addComponent(jLabel5))
                         .addGap(74, 74, 74)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtLongitud2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLatitud1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLongitud1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
                             .addComponent(txtLatitud2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLongitud3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtLongitud2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -143,12 +137,8 @@ public class FrmVincenty extends javax.swing.JDialog {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtLongitud3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtgravity)
                     .addComponent(txtLongitud2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -162,13 +152,12 @@ public class FrmVincenty extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-
         Vincenty vincenty;
         double lat1;
         double lat2;
         double lng1;
         double lng2;
-        double earthRadius = 9.81;
+        double earthRadius = 3958.75;
         double distance;
 
         CalculatorController vincentyController = new CalculatorController();
@@ -180,9 +169,9 @@ public class FrmVincenty extends javax.swing.JDialog {
 
         vincenty = new Vincenty(lat1, lat2, lng1, lng2, earthRadius);
         vincentyController.save(vincenty);
-        distance = FileManager.CalculateEuclideanDistance(lat2, lng1, lat2, lng1);
-        JOptionPane.showMessageDialog(rootPane, vincenty.getLat1() + "," + vincenty.getLat2() + ","
-                + vincenty.getLng1() + "," + vincenty.getLng2() + " ➙ " + distance + " m");
+        distance = FileManager.calculateVincentydistance(lat2, lat1, lng2, lng1, earthRadius);
+        JOptionPane.showMessageDialog(rootPane, vincenty.getLat1() + "," + vincenty.getLng1() + ","
+                + vincenty.getLat2() + "," + vincenty.getLng2() + " ➙ " + distance + " m");
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculateActionPerformed
@@ -190,14 +179,14 @@ public class FrmVincenty extends javax.swing.JDialog {
         double lat2;
         double lng1;
         double lng2;
-        double earthRadius = 9.81;
+        double earthRadius = 3958.75 ;
         double distance;
 
         lat1 = Double.parseDouble(txtLatitud1.getText());
         lng1 = Double.parseDouble(txtLongitud1.getText());
         lat2 = Double.parseDouble(txtLatitud2.getText());
-        lng2 = Double.parseDouble(txtLatitud2.getText());
-        distance = FileManager.CalculateEuclideanDistance(lat2, lng1, lat2, lng1);
+        lng2 = Double.parseDouble(txtLongitud2.getText());
+        distance = FileManager.calculateVincentydistance(lat2, lat1, lng2, lng1, earthRadius);
         JOptionPane.showMessageDialog(rootPane, "The distance is " + distance + " m ");
 
     }//GEN-LAST:event_btnCalculateActionPerformed
@@ -265,7 +254,5 @@ public class FrmVincenty extends javax.swing.JDialog {
     private javax.swing.JTextField txtLatitud2;
     private javax.swing.JTextField txtLongitud1;
     private javax.swing.JTextField txtLongitud2;
-    private javax.swing.JTextField txtLongitud3;
-    private javax.swing.JLabel txtgravity;
     // End of variables declaration//GEN-END:variables
 }
