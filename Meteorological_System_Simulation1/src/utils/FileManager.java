@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class FileManager {
-    
+
     public static boolean createFile(String fileName) {
         boolean created = false;
         try {
@@ -51,14 +51,13 @@ public class FileManager {
     public static String read(String fileName) {
         String text = " ";
         try {
-            Scanner s= new Scanner(new File(fileName));
-            while(s.hasNextLine()){
+            Scanner s = new Scanner(new File(fileName));
+            while (s.hasNextLine()) {
                 text = text + s.nextLine() + "\n";
-                
+
             }
-            
-        }
-        catch(FileNotFoundException e){
+
+        } catch (FileNotFoundException e) {
             System.out.println("file not found");
         }
         return text;
@@ -91,4 +90,23 @@ public class FileManager {
     }
     //Vincenty
 
+    public static double calculateangle(double y, double x, double pi) {
+        double angle;
+        angle = (double) Math.atan(y / x) * (180 / pi);
+        return angle;
+    }
+    
+       public static String show(String fileName) {
+        String text = " ";
+        try {
+            Scanner s = new Scanner(new File(fileName));
+            while (s.hasNextLine()) {
+                text = text + s.nextLine() + "\n";
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("file not found");
+        }
+        return text;
+    }
 }

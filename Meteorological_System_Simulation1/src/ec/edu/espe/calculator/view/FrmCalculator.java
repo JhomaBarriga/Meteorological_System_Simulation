@@ -48,6 +48,11 @@ public class FrmCalculator extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         btnConversionCordenate.setText("Conversion Cordenate");
+        btnConversionCordenate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConversionCordenateActionPerformed(evt);
+            }
+        });
 
         btneuclidian.setText("Euclidian ");
 
@@ -112,6 +117,11 @@ public class FrmCalculator extends javax.swing.JFrame {
         FrmHaversine dHaversine = new FrmHaversine(this, true);
         dHaversine.setVisible(true);
     }//GEN-LAST:event_btnhaversineActionPerformed
+
+    private void btnConversionCordenateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConversionCordenateActionPerformed
+        FrmCalculateangle dConversionCordenate = new FrmCalculateangle(this, true);
+        dConversionCordenate.setVisible(true);    
+    }//GEN-LAST:event_btnConversionCordenateActionPerformed
 
     /**
      * @param args the command line arguments

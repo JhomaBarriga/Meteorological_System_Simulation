@@ -48,7 +48,6 @@ public class Meteorological_System_Simulation1 {
         double higherTemperature = -100;
         double lowerTemperature = 100;
         double[] temperatures1;
-        
 
         do {
             printPrincipalMenu();
@@ -423,6 +422,8 @@ public class Meteorological_System_Simulation1 {
         angle = (float) Math.atan(y / x) * (180 / pi);
         return angle;
     }
+//// module = calculateModule(x, y);
+    //System.out.println(" The module of your polar coordinate is ➙ " + module);
 
     private static float calculateModule(float x, float y) {
         float module;

@@ -60,6 +60,24 @@ public class FrmHaversine extends javax.swing.JDialog {
 
         jLabel5.setText("LATITUD 2:");
 
+        txtLng1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLng1ActionPerformed(evt);
+            }
+        });
+
+        txtLat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLat1ActionPerformed(evt);
+            }
+        });
+
+        txtLng2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLng2ActionPerformed(evt);
+            }
+        });
+
         txtArea.setColumns(20);
         txtArea.setRows(5);
         jScrollPane1.setViewportView(txtArea);
@@ -214,6 +232,18 @@ public class FrmHaversine extends javax.swing.JDialog {
         CalculatorController haversineControler = new CalculatorController();
         txtArea.setText(CalculatorController.read());
     }//GEN-LAST:event_btnShowActionPerformed
+
+    private void txtLng1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLng1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLng1ActionPerformed
+
+    private void txtLat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLat1ActionPerformed
+
+    private void txtLng2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLng2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLng2ActionPerformed
 
     /**
      * @param args the command line arguments
