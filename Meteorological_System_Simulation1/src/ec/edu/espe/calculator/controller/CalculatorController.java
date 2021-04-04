@@ -3,6 +3,7 @@ package ec.edu.espe.calculator.controller;
 import ec.edu.espe.calculator.model.Calculateangle;
 import ec.edu.espe.calculator.model.Euclidean;
 import ec.edu.espe.calculator.model.Haversine;
+import ec.edu.espe.calculator.model.Vincenty;
 import utils.FileManager;
 
 public class CalculatorController {
@@ -45,5 +46,15 @@ public class CalculatorController {
         data = FileManager.read("euclidean.csv");
         return data;
     }
+  public void save(Vincenty vincenty) {
+        String data = vincenty.getLat1() + "," + vincenty.getLng1() + ","
+                + vincenty.getLat2() + "," +vincenty.getLng2();
+        FileManager.save(data, "vincenty");
+    }
 
+    public static String readVincenty() {
+        String data;
+        data = FileManager.read("vincenty.csv");
+        return data;
+}
 }

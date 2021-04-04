@@ -115,7 +115,8 @@ public class FrmCalculator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnvicentyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvicentyActionPerformed
-
+   FrmVincenty dVincenty= new FrmVincenty(this, true);
+   dVincenty.setVisible(true);
     }//GEN-LAST:event_btnvicentyActionPerformed
 
     private void btnhaversineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhaversineActionPerformed
