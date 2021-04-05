@@ -28,25 +28,29 @@ public class FrmCalculator extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         btnConversionCordenate = new javax.swing.JButton();
         btneuclidean = new javax.swing.JButton();
         btnhaversine = new javax.swing.JButton();
         btnvicenty = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 204));
+        setFocusCycleRoot(false);
 
         jLabel1.setBackground(new java.awt.Color(102, 255, 204));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
+        jLabel1.setFont(new java.awt.Font("Gill Sans Ultra Bold", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("GEOESPATIAL CALCULATOR");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("MEMBERS:\nBACUY DIANA\nBARRIGA JHOMARA\nCALDERÓN DAYANA \nCALVACHE EMILIA");
-        jScrollPane1.setViewportView(jTextArea1);
-
+        btnConversionCordenate.setBackground(new java.awt.Color(255, 255, 153));
+        btnConversionCordenate.setForeground(new java.awt.Color(153, 51, 0));
         btnConversionCordenate.setText("Conversion Cordenate");
         btnConversionCordenate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +58,8 @@ public class FrmCalculator extends javax.swing.JFrame {
             }
         });
 
+        btneuclidean.setBackground(new java.awt.Color(255, 204, 153));
+        btneuclidean.setForeground(new java.awt.Color(153, 51, 0));
         btneuclidean.setText("Euclidean ");
         btneuclidean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +67,8 @@ public class FrmCalculator extends javax.swing.JFrame {
             }
         });
 
+        btnhaversine.setBackground(new java.awt.Color(255, 255, 153));
+        btnhaversine.setForeground(new java.awt.Color(153, 51, 0));
         btnhaversine.setText("Haversine");
         btnhaversine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +76,8 @@ public class FrmCalculator extends javax.swing.JFrame {
             }
         });
 
+        btnvicenty.setBackground(new java.awt.Color(255, 204, 153));
+        btnvicenty.setForeground(new java.awt.Color(153, 51, 0));
         btnvicenty.setText("Vicenty");
         btnvicenty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,40 +85,79 @@ public class FrmCalculator extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
+        jLabel2.setText("MEMBERS:");
+
+        jLabel3.setText("BACUY DIANA");
+
+        jLabel4.setText("BARRIGA KAREN");
+
+        jLabel5.setText("CALDERÓN DAYANA");
+
+        jLabel6.setText("CALVACHE EMILIA");
+
+        jLabel7.setFont(new java.awt.Font("Tempus Sans ITC", 1, 13)); // NOI18N
+        jLabel7.setText("CHOOSE THE OPTION FOR CALCULATE:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(63, 63, 63))
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btneuclidean)
-                    .addComponent(btnConversionCordenate)
-                    .addComponent(btnhaversine)
-                    .addComponent(btnvicenty)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnConversionCordenate)
+                            .addComponent(btneuclidean))
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnvicenty)
+                            .addComponent(btnhaversine)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(62, 62, 62)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel3))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6)))
+                            .addComponent(jLabel7)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(btnConversionCordenate)
                 .addGap(18, 18, 18)
-                .addComponent(btneuclidean)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addComponent(btnhaversine)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(btnvicenty)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConversionCordenate)
+                    .addComponent(btnhaversine))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnvicenty)
+                    .addComponent(btneuclidean))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
@@ -175,7 +224,11 @@ public class FrmCalculator extends javax.swing.JFrame {
     private javax.swing.JButton btnhaversine;
     private javax.swing.JButton btnvicenty;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }
